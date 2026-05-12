@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Services | Perth's Plumbing Professor</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+            overflow-x: hidden;
+            width: 100%;
+            background-image: url('bg1.png');
+        }
+
+        /* --- NAVBAR (Black Glass) --- */
+        .navbar {
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 0;
+            width: calc(100% - 40px); 
+            margin: 20px auto;
+            position: fixed; 
+            top: 0; 
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease, opacity 0.4s ease; 
+        }
+
+        .nav-hidden {
+            transform: translateY(-150%);
+            opacity: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 0 30px;
+            position: relative;
+        }
+
+        .nav-logo-img {
+            height: 95px; 
+            width: auto;
+            display: block;
+            margin: -10px 0; 
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 20px; 
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active-page { 
+            color: #3e99ee !important; 
+        }
+
+        .nav-call-btn {
+            background-color: #0073B1;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid white;
+            transition: all 0.3s ease !important;
+            display: inline-block;
+        }
+
+        .nav-call-btn:hover {
+            background-color: white !important;
+            color: #0073B1 !important;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 6px; z-index: 1001; }
+        .menu-toggle span { width: 30px; height: 3px; background: white; border-radius: 5px; transition: 0.4s; }
+        .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        /* --- HERO SECTION --- */
+        .hero-bg {
+            height: 100vh; 
+            width: 100%;
+            background: url('electricalpro.jpeg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+            color: white;
+            position: relative;
+            padding-top: 50px;
+        }
+
+        .page-header { 
+            max-width: 1000px; 
+            padding: 0 50px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 22px; 
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 6vw, 60px);
+            text-transform: uppercase;
+            color: white;
+            font-weight: 900;
+            white-space: normal; 
+            text-shadow: -2px -2px 0 #0073B1, 2px -2px 0 #0073B1, -2px 2px 0 #0073B1, 2px 2px 0 #0073B1, 0px 10px 20px rgba(0,0,0,0.5);
+            line-height: 1.15;
+            letter-spacing: 1.2px;
+            margin-bottom: 8px;
+        }
+
+        .page-header .short-sub {
+            font-weight: 800;
+            color: #FFD700; 
+            font-size: clamp(16px, 2.5vw, 28px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            line-height: 1.45;
+            max-width: 90%;
+            margin-bottom: 35px;
+        }
+
+        .hero-cta-btn,
+        .enquire-btn,
+        .back-cta {
+            letter-spacing: 0.6px;
+        }
+
+        .hero-cta-btn {
+            display: inline-block;
+            background-color: #ff0000;
+            color: white !important;
+            padding: 15px 35px; 
+            font-size: clamp(14px, 2vw, 18px); 
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid white; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: pulse-red 2s infinite;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); } 
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        }
+
+        /* --- CONTENT WRAPPER --- */
+        .content-wrapper {
+            background: url('bg1.png') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 60px 0 0 0;
+            width: 100%;
+        }
+
+        /* --- INTRO SECTION --- */
+        .intro-section {
+            max-width: 1100px;
+            margin: 0 auto 50px;
+            padding: 55px 38px;
+            backdrop-filter: blur(12px);
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-right: 6px solid transparent; 
+            border-left: 6px solid transparent; 
+            color: white;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            width: calc(100% - 40px);
+            transition: 0.4s ease;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .intro-section:hover {
+            border-right: 6px solid #FFD700; 
+            border-left: 6px solid #FFD700;  
+        }
+
+        .intro-section h2 { 
+            font-size: clamp(24px, 4vw, 38px); 
+            color: #FFD700; 
+            text-transform: uppercase; 
+            font-weight: 800; 
+            line-height: 1.25;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .intro-text p {
+            font-size: 16px;
+            line-height: 1.9;
+            max-width: 95%;
+            margin: 0 auto;
+        }
+
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin-top: 40px;
+            gap: 18px;
+        }
+
+        /* --- PERK ITEMS --- */
+        .perk-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: 0.3s ease;
+            padding: 20px 18px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .perk-item:hover {
+            outline: 2px solid #FFD700; 
+            border-color: #FFD700;
+        }
+
+        /* --- SERVICES GRID --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            max-width: 1100px;
+            margin: 75px auto;
+            gap: 35px;
+            perspective: 1000px;
+            width: calc(100% - 40px);
+        }
+
+        .elec-card {
+            height: 520px; 
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .elec-card:hover { transform: rotateY(180deg); }
+        .elec-card:hover:not(:has(.enquire-btn:hover)) { transform: rotateY(180deg); }
+        .enquire-btn:hover ~ .card-back { transform: rotateY(0deg) !important; }
+        .elec-card:has(.enquire-btn:hover) { transform: rotateY(0deg) !important; }
+
+        .card-face { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            backface-visibility: hidden; 
+            -webkit-backface-visibility: hidden; 
+            -webkit-font-smoothing: antialiased; 
+            transform: translateZ(0); 
+            border-radius: 30px; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+        }
+
+        .card-front { background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(15px); }
+        .elec-img-wrapper { width: 100%; height: 200px; }
+        .elec-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .front-content { 
+            text-align: center; 
+            flex-grow: 1; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            color: white; 
+            padding: 30px 25px;
+            gap: 18px;
+        }
+
+        .front-content h3 {
+            font-size: 22px;
+            color: #FFD700;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(-100px); 
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.8s ease;
+            line-height: 1.3;
+            letter-spacing: 0.8px;
+        }
+
+        .front-content h3.drop-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .front-content p { 
+            opacity: 0.9; 
+            margin-bottom: 0; 
+            font-size: 15px;
+            line-height: 1.65;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .enquire-btn { background: #0073B1; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase; border: 2px solid white; transition: 0.3s; align-self: center; position: relative; z-index: 10; }
+
+        .card-back { 
+            background: linear-gradient(135deg, #004f95 0%, #0073B1 100%); 
+            transform: rotateY(180deg) translateZ(1px); 
+            color: white; 
+            text-align: left; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            outline: 4px solid #FFD700;
+            outline-offset: -4px; 
+            padding: 30px 26px;
+            gap: 14px;
+        }
+
+        .card-back h3 { 
+            font-size: 20px; 
+            border-bottom: 2px solid #FFD700; 
+            padding-bottom: 8px; 
+            text-transform: uppercase; 
+            line-height: 1.35;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
+        }
+
+        .card-back .back-desc { font-style: italic; opacity: 0.9; font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
+        .card-back ul { list-style: none; }
+        .card-back ul li { font-size: 13px; display: flex; align-items: center; gap: 8px; font-weight: 600; line-height: 1.6; margin-bottom: 10px;}
+        .card-back ul li::before { content: "⚡"; font-size: 12px; }
+        .price-tag { font-weight: 800; font-size: 15px; color: #FFD700; margin-bottom: 15px; }
+        .back-cta { background: white; color: #004f95; padding: 12px; text-align: center; border-radius: 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; transition: 0.3s; position: relative; z-index: 10; }
+
+        /* --- UMBRELLA BANNER --- */
+        .umbrella-banner {
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(0, 0, 0, 0.5) !important; 
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            text-align: left;
+            color: white;
+            border-left: 5px solid #FFD700 !important;
+            border-right: 5px solid #FFD700 !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: calc(100% - 40px);
+            animation: bannerFloat 4s ease-in-out infinite;
+            padding: 38px 32px;
+        }
+
+        .umbrella-banner h3 { font-size: clamp(20px, 3vw, 28px); line-height: 1.3; margin-bottom: 18px; }
+        .umbrella-banner p { line-height: 1.85; font-size: 16px; }
+
+        @keyframes bannerFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+         /* --- FOOTER (Black Glass) --- */ .vip-footer { background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(15px); border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 50px 20px 20px 20px; margin-top: 60px; border-top-left-radius: 40px; border-top-right-radius: 40px; color: white; box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
+         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: left; }
+          .footer-section h4 { font-size: 22px !important; margin-bottom: 22px !important; line-height: 1.4 !important; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #3e99ee; padding-left: 12px; font-weight: 800; }
+           .footer-section h5 { font-size: 22px !important; margin-bottom: 22px !important; line-height: 1.4 !important; margin-top: 30px; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #3e99ee; padding-left: 12px; font-weight: 800; text-decoration: none; } 
+           .footer-section p, .footer-section li { font-size: 16px !important; line-height: 2 !important; color: #ffffff; font-weight: 500; list-style: none; }
+            .footer-section a { color: #ffffff; text-decoration: none; transition: 0.3s ease; display: inline-block; font-weight: 600; }
+            .footer-section a:hover { color: #00D4FF; padding-left: 8px; } .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 14px !important; line-height: 1.8 !important; letter-spacing: 1px; color: #ffffff; opacity: 0.8; }
+             .footer-section p { margin-bottom: 6px !important; line-height: 1.3 !important; display: flex; align-items: center; gap: 10px; } 
+             .footer-section p:last-child { white-space: nowrap; } 
+             /* Contractor License */ .contractor-license { margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 204, 0, 0.25); text-align: center; margin-right: -15px; } 
+             .contractor-license span { display: inline-block; color: #ffcc00; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; } 
+             /* Contact Info Fix */ .contact-info-fix p { display: flex; align-items: center; gap: 4px; margin-bottom: 10px; white-space: nowrap; } 
+             .contact-info-fix p span { flex-shrink: 0; font-size: 16px; } /* Desktop Footer Adjustment */ @media (min-width: 769px)
+              { .footer-section:nth-child(3) { margin-left: -80px; } }
+
+          /* --- DESKTOP / TABLET QUERIES --- */
+        @media (max-width: 1024px) { 
+            .services-grid { grid-template-columns: repeat(2, 1fr); } 
+        }
+
+        /* --- ALL MOBILE QUERIES MERGED --- */
+        @media (max-width: 768px) {
+            /* Background Fix */
+            body { background-image: none !important; }
+            body::before {
+                content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: url('bg1.png') no-repeat center center; background-size: cover; z-index: -100;
+            }
+
+            /* Navbar */
+            .navbar { width: calc(100% - 20px); margin: 10px auto; border-radius: 20px; position: fixed; }
+            .nav-container { padding: 10px 20px; }
+            .menu-toggle { display: flex; }
+            .nav-menu { 
+                display: none; flex-direction: column; position: absolute; top: 110%; left: 0; 
+                width: 100%; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(20px); 
+                padding: 30px; border-radius: 25px; gap: 20px; border: 1px solid rgba(255, 255, 255, 0.2); 
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; 
+            }
+            .nav-menu.active { display: flex; }
+            .nav-logo-img { height: 70px; }
+            .hero-video { object-fit: contain; background-color: #000; }
+
+            /* Hero / Header Adjustments */
+            .hero-bg { align-items: flex-end !important; padding-top: 0 !important; padding-bottom: 120px !important; }
+            .page-header { gap: 16px; }
+            .page-header h1 { line-height: 1.2; margin-bottom: 5px; }
+            .page-header .short-sub { line-height: 1.4; margin-bottom: 28px; }
+
+            /* Content & Spacing */
+            .intro-section { padding: 38px 24px; }
+            .intro-section h2 { margin-bottom: 22px; }
+            .intro-text p { font-size: 15px; line-height: 1.8; }
+            .perks-grid { grid-template-columns: 1fr; }
+            .perk-item { font-size: 14px; line-height: 1.5; }
+
+            .services-grid { grid-template-columns: 1fr; max-width: 450px; margin: 50px auto; gap: 25px; }
+            .front-content { padding: 24px 20px; gap: 14px; }
+            .card-back { padding: 22px 18px; }
+            .card-back .back-desc { line-height: 1.55; }
+            
+            .umbrella-banner { padding: 28px 22px; }
+            .umbrella-banner p { font-size: 15px; line-height: 1.75; }
+
+           /* Mobile Footer Responsive */ @media (max-width: 768px) { .footer-container { text-align: center; gap: 25px !important; display: flex; flex-direction: column; } .footer-section p, .footer-section li { font-size: 15px !important; } .footer-section h4, .footer-section h5 { border-left: none; border-bottom: 3px solid #3e99ee; display: inline-block; padding: 0 10px; padding-bottom: 5px; } .footer-section.contact-info-fix { text-align: center !important; display: flex; flex-direction: column; align-items: center; } .footer-section.contact-info-fix h4 { margin-bottom: 20px; } .contact-info-fix p { display: flex !important; justify-content: center !important; align-items: center !important; gap: 8px !important; white-space: nowrap !important; text-align: center !important; margin-bottom: 8px !important; width: 100%; } .contact-info-fix p span { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; } .contractor-license { margin-top: 15px !important; padding-top: 12px !important; text-align: center !important; margin-right: 0 !important; width: 100%; } .contractor-license span { font-size: 12px !important; letter-spacing: 0.4px !important; line-height: 1.6 !important; display: block; text-align: center; } }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar" id="mainNav">
+    <div class="nav-container">
+        <a href="index.html"><img src="logo.png" alt="Logo" class="nav-logo-img"></a>
+        <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
+        <ul class="nav-menu" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="realstate.html">Real Estate</a></li>
+            <li><a href="Electrical.html" class="active-page">Electrical</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="tel:0406872600" class="nav-call-btn">CALL NOW</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="hero-bg">
+    <header class="page-header">
+        <h1>Plumbing & electrical Pro</h1>
+        <p class="short-sub">One Reliable Crew – Done Right, First Time</p>
+        <a href="tel:0406872600" class="hero-cta-btn">CALL NOW 0406 872 600</a>
+    </header>
+</div>
+
+<div class="content-wrapper">
+    <div class="intro-section">
+        <h2>We’re Here for All Your Electrical Needs</h2>
+        <div class="intro-text">
+            <p>Need a spark sorted? The Professor’s got your back — plumbing and electrical, all under one umbrella. My trusted electrical partners jump in for switchboard upgrades, LED lighting, safety switches, new points, rewires, or those pesky emergency fixes. Same reliable crew vibe: one call, one team, no drama. Everything gets done right, first time — fully compliant, safe, and with that Professor smile. </p>
+        </div>
+        <div class="perks-grid">
+            <div class="perk-item">🚨 24/7 Emergency Service</div>
+            <div class="perk-item">💸 No Call-Out Fees (Business Hours)</div>
+            <div class="perk-item">🤝 Same Team You Already Trust for Plumbing</div>
+            <div class="perk-item">⚡ Hassle-Free – We Coordinate the Experts</div>
+        </div>
+    </div>
+
+    <div class="services-grid">
+        <div class="elec-card">
+            <div class="card-face card-front">
+                <div class="elec-img-wrapper"><img src="safety.jpg" alt="Maintenance"></div>
+                <div class="front-content">
+                    <h3>Maintenance & Repairs</h3>
+                    <p>From flickering lights to power outages</p>
+                    <a href="contact.html" class="enquire-btn">Enquire Now</a>
+                </div>
+            </div>
+            <div class="card-face card-back">
+                <h3>Maintenance & Repairs</h3>
+                <p class="back-desc">Our partner specialists diagnose and fix faults fast – flickering lights, dead outlets, tripped breakers, power surges. Clinical precision, minimal fuss.</p>
+                <ul>
+                    <li>Quick response</li>
+                    <li>Safe & compliant fixes</li>
+                    <li>Priority for real estate & homes</li>
+                </ul>
+                <p class="price-tag">Enquire for a quote – no surprises.</p>
+                <a href="contact.html" class="back-cta">Get A Quote</a>
+            </div>
+        </div>
+
+        <div class="elec-card">
+            <div class="card-face card-front">
+                <div class="elec-img-wrapper"><img src="safetycomplince.png" alt="Safety"></div>
+                <div class="front-content">
+                    <h3>Safety & Compliance</h3>
+                    <p>RCD testing, smoke alarms & audits</p>
+                    <a href="contact.html" class="enquire-btn">Enquire Now</a>
+                </div>
+            </div>
+            <div class="card-face card-back">
+                <h3>Safety & Compliance</h3>
+                <p class="back-desc">Keep your family or tenants protected with full safety checks and installs. RCD/safety switch testing, interconnected smoke alarms, compliance reports for rentals/inspections.</p>
+                <ul>
+                    <li>Annual checks available</li>
+                    <li>Full audits & certs</li>
+                    <li>Peace of mind sorted</li>
+                </ul>
+                <p class="price-tag">Enquire for your safety package.</p>
+                <a href="contact.html" class="back-cta">Secure Now</a>
+            </div>
+        </div>
+
+        <div class="elec-card">
+            <div class="card-face card-front">
+                <div class="elec-img-wrapper"><img src="electrical.png" alt="Installations"></div>
+                <div class="front-content">
+                    <h3>New Installations</h3>
+                    <p>Switchboard upgrades & new points</p>
+                    <a href="contact.html" class="enquire-btn">Enquire Now</a>
+                </div>
+            </div>
+            <div class="card-face card-back">
+                <h3>New Installations</h3>
+                <p class="back-desc">Adding circuits, upgrading old switchboards, new lighting/power points, EV charger prep – we coordinate the experts, so you don't have to.</p>
+                <ul>
+                    <li>Modern, energy-efficient upgrades</li>
+                    <li>Compliant & future-proof</li>
+                    <li>Seamless for renos or new builds</li>
+                </ul>
+                <p class="price-tag">Enquire for custom install quote.</p>
+                <a href="contact.html" class="back-cta">Book Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="umbrella-banner">
+        <h3>🛡️ Integrated Excellence</h3>
+        <p>One contact, total peace of mind—ensuring your electrical and plumbing needs are handled with clinical precision across Perth.</p>
+    </div>
+
+    <footer class="vip-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Perth's premier plumbing experts. Delivering excellence across Western Australia for over a decade with trust and precision.</p>
+                <h5>Trust badges:</h5>
+                <ul>
+                    <li><a href="#">• Gas Licence GF20624 TL17198</a></li>
+                    <li><a href="#">• 5-Star Google Reviews</a></li>
+                    <li><a href="#">• Owner-Operated by Andre Stokes</a></li>
+                    <li><a href="#">• ABN 96 693 410 9782</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="realstate.html">Real Estate</a></li>
+                    <li><a href="Electrical.html">Electrical</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+           <div class="footer-section contact-info-fix">   
+                <h4>Contact Info</h4>
+                <p><span>📍</span> Office 5c Nangar Street, Yokine WA 6060</p>
+                <p><span>📞</span> 0406 872 600</p>
+                <p><span>✉️</span> perthsplumbingprofessor@gmail.com</p>
+            </div>
+            <div class="contractor-license">
+                <span>Fully Licensed & Certified | Licence No: PL11366</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Perth's Plumbing Professor | All Rights Reserved
+        </div>
+    </footer>
+</div>
+
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+    const navbar = document.getElementById('mainNav');
+    let lastScrollY = window.scrollY;
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY && window.scrollY > 100) { 
+            navbar.classList.add('nav-hidden'); 
+            navLinks.classList.remove('active'); 
+            menuToggle.classList.remove('active');
+        } else { 
+            navbar.classList.remove('nav-hidden'); 
+        }
+        lastScrollY = window.scrollY;
+    });
+
+    document.querySelectorAll('.enquire-btn, .back-cta').forEach(btn => {
+        btn.addEventListener('click', (e) => { e.stopPropagation(); });
+        btn.addEventListener('touchstart', (e) => { e.stopPropagation(); });
+    });
+
+    const observerOptions = { threshold: 0.5 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const heading = entry.target.querySelector('h3');
+                if (heading) {
+                    heading.classList.add('drop-animate');
+                }
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.elec-card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+</body>
+</html>

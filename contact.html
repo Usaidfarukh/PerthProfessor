@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Perth's Plumbing Professor</title>
+
+    <style>
+        :root {
+            --primary-glow: #00d4ff;
+            --secondary-glow: #0073B1;
+            --dark-bg: #0a0f1a;
+            --glass-white: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('bg1.png') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; 
+            min-height: 100vh;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 0;
+            width: calc(100% - 40px); 
+            margin: 20px auto;
+            left: 0;
+            right: 0;
+            position: fixed; 
+            z-index: 1000;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        }
+
+        .nav-hidden {
+            transform: translateY(-160%);
+            opacity: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .nav-logo-img {
+            height: 95px; 
+            width: auto;
+            display: block;
+            margin: -10px 0; 
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 20px; 
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover { color: #3e99ee; }
+
+        .nav-call-btn {
+            background-color: #0073B1;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid white;
+            transition: all 0.3s ease !important;
+            display: inline-block;
+        }
+        
+        .nav-call-btn:hover {
+            background-color: white !important;
+            color: #0073B1 !important;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+/* --- IMPROVED TYPOGRAPHY + SPACING (DESIGN SAFE CHANGES ONLY) --- */
+
+/* PAGE HEADER */
+.page-header h1 {
+    line-height: 1.3 !important;
+    letter-spacing: 1.5px !important;
+    margin-bottom: 28px !important;
+}
+
+.hero-cta-btn {
+    padding: 14px 34px !important;
+    font-size: 17px !important;
+    letter-spacing: 1px !important;
+}
+
+/* SECTION MAIN CONTAINER */
+.main-container {
+    margin: 70px auto !important;
+}
+
+/* POINT BOXES */
+.point-box {
+    padding: 35px 28px !important;
+}
+
+.point-box h3 {
+    font-size: 20px !important;
+    margin-bottom: 14px !important;
+    line-height: 1.4 !important;
+    letter-spacing: 1.2px !important;
+}
+
+.point-box p {
+    font-size: 15px !important;
+    line-height: 1.9 !important;
+}
+
+/* REAL ESTATE INFO SECTION */
+.real-estate-info {
+    padding: clamp(25px, 5vw, 50px) !important;
+}
+
+.section-title {
+    font-size: clamp(26px, 4vw, 34px) !important;
+    line-height: 1.3 !important;
+    margin-bottom: 28px !important;
+    letter-spacing: 0.5px !important;
+}
+
+.real-estate-info p {
+    font-size: 17px !important;
+    line-height: 2 !important;
+    margin-bottom: 20px !important;
+    color: rgba(255,255,255,0.92) !important;
+}
+
+/* BENEFIT CARDS */
+.benefit-content {
+    padding: 28px 24px !important;
+}
+
+.benefit-content h4 {
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.8px !important;
+    margin-bottom: 18px !important;
+}
+
+.benefit-content p {
+    font-size: 15px !important;
+    line-height: 1.9 !important;
+    color: rgba(255,255,255,0.92) !important;
+}
+
+/* CTA BOX */
+.cta-box h2 {
+    font-size: clamp(28px, 4vw, 40px) !important;
+    line-height: 1.3 !important;
+    margin-bottom: 18px !important;
+    letter-spacing: 1px !important;
+}
+
+.cta-box p {
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 10px !important;
+}
+
+.cta-btn {
+    letter-spacing: 1.2px !important;
+}
+
+/* FOOTER */
+.footer-section h4,
+.footer-section h5 {
+    font-size: 22px !important;
+    margin-bottom: 22px !important;
+    line-height: 1.4 !important;
+}
+
+.footer-section p,
+.footer-section li {
+    font-size: 16px !important;
+    line-height: 2 !important;
+}
+
+.footer-bottom {
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+}
+
+/* MOBILE SAFE IMPROVEMENTS */
+@media (max-width: 768px) {
+    .page-header h1 {
+        line-height: 1.35 !important;
+        letter-spacing: 1px !important;
+    }
+
+    .point-box {
+        padding: 30px 24px !important;
+    }
+
+    .section-title {
+        margin-bottom: 22px !important;
+    }
+
+    .benefit-content h4 {
+        font-size: 18px !important;
+    }
+
+    .cta-box h2 {
+        font-size: 26px !important;
+    }
+
+    .cta-box p {
+        font-size: 16px !important;
+    }
+
+    .footer-section p,
+    .footer-section li {
+        font-size: 15px !important;
+    }
+}
+        /* --- HAMBURGER --- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        /* --- HERO TITLE --- */
+        .hero-title {
+            text-align: center;
+            padding: 180px 20px 40px; 
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-title h1 {
+            font-size: clamp(30px, 6vw, 65px);
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #fff, #3e99ee); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-title p { color: #e2e8f0; font-size: 18px; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            padding: 0 25px;
+        }
+
+        /* --- INFO CARDS --- */
+        .contact-info-stack { display: flex; flex-direction: column; gap: 20px; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+            border-color: #3e99ee;
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            background: #0073B1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 10px 15px rgba(0, 115, 177, 0.3);
+            flex-shrink: 0; 
+        }
+
+        .card-content h3 { font-size: 13px; text-transform: uppercase; color: #3e99ee; letter-spacing: 1px; margin-bottom: 5px; }
+        .card-content p { font-size: 17px; font-weight: 600; color: #fff; word-break: break-word; } 
+
+        /* --- FORM STYLE --- */
+        .form-container {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            padding: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            animation: formAppear 1s ease-out both;
+            animation-delay: 0.3s;
+        }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .input-group { margin-bottom: 25px; }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #3e99ee;
+            text-transform: uppercase;
+        }
+
+        .input-group input, .input-group textarea, .input-group select {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 14px 18px;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 15px;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        .input-group select option {
+            background: #0a0f1a;
+            color: #fff;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(45deg, #0073B1, #3e99ee);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 10px 20px rgba(0, 115, 177, 0.3);
+        }
+
+        /* --- FOOTER CSS --- */
+        .vip-footer {  backdrop-filter: blur(15px); border-top: 1px solid rgba(255, 255, 255, 0.3); padding: 50px 20px 20px 20px; margin-top: 60px; border-top-left-radius: 40px; border-top-right-radius: 40px; color: white; box-shadow: 0 -10px 30px rgba(0,0,0,0.2); }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: left; }
+        .footer-section h4 { font-size: 20px; margin-bottom: 20px; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #3e99ee; padding-left: 12px; font-weight: 800; }
+        .footer-section h5 { font-size: 20px; margin-bottom: 20px; margin-top: 30px; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #3e99ee; padding-left: 12px; font-weight: 800; text-decoration: none; }
+        .footer-section p, .footer-section li { font-size: 15px; line-height: 1.8; color: #ffffff; font-weight: 500; list-style: none;}
+        .footer-section a { color: #ffffff; text-decoration: none; transition: 0.3s ease; display: inline-block; font-weight: 600;}
+        .footer-section a:hover { color: #00D4FF; padding-left: 8px; }
+        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 13px; letter-spacing: 1px; color: #ffffff; opacity: 0.8; }
+   .footer-section p {
+            margin-bottom: 6px !important;
+            /* Lines ke darmiyan gap kam karega */
+            line-height: 1.3 !important;
+            /* Text ko verticaly kareeb layega */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Icon aur text ka darmiyani faasla */
+        }
+
+        /* Email ko ek line mein rakhne ke liye agar jagah kam ho */
+        .footer-section p:last-child {
+            white-space: nowrap;
+        }
+
+        .contractor-license {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 204, 0, 0.25);
+
+            text-align: center;
+            margin-right: -15px;
+        }
+
+        .contractor-license span {
+            display: inline-block;
+            color: #ffcc00;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Contact Info Icons Perfect Alignment */
+        .contact-info-fix p {
+            display: flex;
+            align-items: center;
+            /* Icon aur text ko bilkul aamne-saamne center karega */
+            gap: 4px;
+            /* Icon aur text ke beech perfect faasla */
+            margin-bottom: 10px;
+            white-space: nowrap;
+            /* Ye email ya address ko ajeeb tarike se doosri line me girne nahi dega */
+        }
+
+        .contact-info-fix p span {
+            flex-shrink: 0;
+            /* Ye property icons ko chota ya dabne nahi degi */
+            font-size: 16px;
+        }
+
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes formAppear {
+            from { opacity: 0; transform: translateY(50px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* =========================================
+           RESPONSIVE MEDIA QUERIES
+        ========================================= */
+        
+        @media (max-width: 992px) {
+            .main-wrapper { grid-template-columns: 1fr; gap: 40px; }
+            .form-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 850px) {
+            .hamburger { display: flex; }
+            
+            .nav-menu {
+                position: absolute;
+                top: 90px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-20px);
+                width: 90%;
+                background: #000000; /* SOLID BLACK BACKGROUND */
+                backdrop-filter: none;
+                flex-direction: column;
+                padding: 40px 20px;
+                border-radius: 25px;
+                border: 1px solid rgba(255,255,255,0.1);
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.4s ease;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(-50%) translateY(0);
+            }
+
+            /* Hamburger Animation */
+            .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { width: calc(100% - 20px); margin: 10px auto; border-radius: 40px; }
+            .nav-container { padding: 0 20px; }
+            .nav-logo-img { height: 75px; }
+            
+            .hero-title { padding-top: 150px; padding-bottom: 30px; }
+            .hero-title p { font-size: 16px; }
+
+            .main-wrapper { padding: 0 15px; } 
+            .form-container { padding: 25px; } 
+            .input-group { margin-bottom: 15px; }
+
+            .footer-container { text-align: center; gap: 30px; }
+            .footer-section h4, .footer-section h5 { 
+                border-left: none; 
+                border-bottom: 3px solid #3e99ee; 
+                display: inline-block; 
+                padding: 0 10px; 
+                padding-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .glass-card { 
+                padding: 15px; 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 10px;
+            }
+            .card-icon { margin: 0 auto; }
+            .form-container { padding: 20px; }
+            .submit-btn { font-size: 15px; padding: 15px; }
+        }
+        /* Quick Links aur Contact Info ka gap kam karne ke liye */
+@media (min-width: 769px) {
+    .footer-section:nth-child(3) {
+        margin-left: -80px; /* Is value ko barha kar gap aur kam kar saktay hain */
+    }
+}
+/* MOBILE CONTACT INFO SECTION FIX ONLY */
+@media (max-width: 768px) {
+
+    .footer-section.contact-info-fix {
+        text-align: center !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section.contact-info-fix h4 {
+        margin-bottom: 20px;
+    }
+
+    .contact-info-fix p {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 8px !important;
+        white-space: nowrap !important;
+        text-align: center !important;
+        margin-bottom: 8px !important;
+        width: 100%;
+    }
+
+    .contact-info-fix p span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 18px;
+    }
+
+    .contractor-license {
+        margin-top: 15px !important;
+        padding-top: 12px !important;
+        text-align: center !important;
+        margin-right: 0 !important;
+        width: 100%;
+    }
+
+    .contractor-license span {
+        font-size: 12px !important;
+        letter-spacing: 0.4px !important;
+        line-height: 1.6 !important;
+        display: block;
+        text-align: center;
+    }
+
+    .footer-container {
+        gap: 25px !important;
+    }
+}
+/* --- ALL MOBILE RESPONSIVENESS MERGED --- */
+@media (max-width: 768px) {
+
+    /* --- MOBILE BACKGROUND FIX (Sirf ye snippet add karein) --- */
+    body {
+        background-image: none !important; 
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: url('bg1.png') no-repeat center center;
+        background-size: cover;
+        z-index: -100;
+    }
+    /* --------------------------------------------------------- */
+
+    /* Baki apka code exactly waisa hi rahega neechay, KUCH NAHI CHERNA */
+    .hero-video { object-fit: contain; background-color: #000; }
+    .navbar { width: calc(100% - 20px); margin: 10px auto; border-radius: 20px; position: fixed; }
+    .nav-container { padding: 10px 20px; }
+    /* ... apka baki saara mobile CSS ... */}
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="mainNav">
+    <div class="nav-container">
+        <a href="index.html"><img src="logo.png" alt="Logo" class="nav-logo-img"></a>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="realstate.html">Real Estate</a></li>
+            <li><a href="Electrical.html">Electrical</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html" style="color: #3e99ee;">Contact</a></li>
+            <li><a href="tel:0406872600" class="nav-call-btn">CALL NOW</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="hero-title">
+    <h1>Connect With The Professor</h1>
+    <p>Expert solutions are just a message away. Available 24/7 for emergency call-outs and scheduled maintenance across Perth.</p>
+</div>
+
+<div class="main-wrapper">
+    <div class="contact-info-stack">
+        <div class="glass-card">
+            <div class="card-icon">📞</div>
+            <div class="card-content">
+                <h3>Priority Line</h3>
+                <p>0406 872 600</p>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div class="card-icon">📧</div>
+            <div class="card-content">
+                <h3>Official Email</h3>
+                <p>perthsplumbingprofessor@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div class="card-icon">📍</div>
+            <div class="card-content">
+                <h3>Headquarters</h3>
+                <p>Office 5c Nangar Street, Yokine WA 6060</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <form action="#">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@example.com" required>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label>Service Type</label>
+                <select required>
+                    <option value="" disabled selected>Select a Service</option>
+                    <option value="emergency">24/7 Emergency</option>
+                    <option value="maintenance">Real Estate Maintenance</option>
+                    <option value="gas">Gas Fitting & Servicing</option>
+                    <option value="blocked-drains">Blocked Toilets & Drains</option>
+                    <option value="renovations">Renovations & New Builds</option>
+                    <option value="general-plumbing">General Plumbing & Hot Water</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>How can we help?</label>
+                <textarea rows="5" placeholder="Describe your plumbing or electrical needs..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Inquiry</button>
+        </form>
+    </div>
+</div>
+
+<footer class="vip-footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>About Us</h4>
+            <p>Perth's premier plumbing experts. Delivering excellence across Western Australia for over a decade with trust and precision.</p>
+            <h5>Trust badges:</h5>
+            <ul>
+               <li><a href="#">• Gas Licence GF20624 TL17198</a></li>
+               <li><a href="#">• 5-Star Google Reviews</a></li>
+               <li><a href="#">• Owner-Operated by Andre Stokes</a></li>
+               <li><a href="#">• ABN 96 693 410 9782</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="realstate.html">Real Estate</a></li>
+                <li><a href="Electrical.html">Electrical</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+          <div class="footer-section contact-info-fix">
+                <h4>Contact Info</h4>
+                <p><span>📍</span> Office 5c Nangar Street, Yokine WA 6060</p>
+                <p><span>📞</span> 0406 872 600</p>
+                <p><span>✉️</span> perthsplumbingprofessor@gmail.com</p>
+            </div>
+            <div class="contractor-license">
+                <span>Fully Licensed & Certified | Licence No: PL11366</span>
+            </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Perth's Plumbing Professor | All Rights Reserved
+    </div>
+</footer>
+
+<script>
+    // --- HAMBURGER & MENU LOGIC ---
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // --- SCROLL HIDE NAVBAR ---
+    let lastScrollY = window.scrollY;
+    const navbar = document.getElementById('mainNav');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY && window.scrollY > 100) {
+            navbar.classList.add('nav-hidden');
+            // Mobile menu band kar dena scroll par
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        } else {
+            navbar.classList.remove('nav-hidden');
+        }
+        lastScrollY = window.scrollY;
+    });
+</script>
+
+</body>
+</html>

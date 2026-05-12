@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saunas & Cold Plunges Perth | Installed by Perth’s Plumbing Professor</title>
+    <meta name="description"
+        content="Official installers & servicers of Apex Therapy saunas, cold plunges & red-light therapy in Perth. Plumbed, powered & perfected by the Professor. 0406 872 600.">
+
+    <style>
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: #0a0a0a url('bg1.png') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 0;
+            width: calc(100% - 40px);
+            margin: 20px auto;
+            left: 0;
+            right: 0;
+            position: fixed;
+            z-index: 1000;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .nav-hidden {
+            transform: translateY(-150%);
+            opacity: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            position: relative;
+        }
+
+        .nav-logo-img {
+            height: 95px;
+            width: auto;
+            display: block;
+            margin: -10px 0;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-call-btn {
+            background-color: #0073B1;
+            color: white !important;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 50px;
+            border: 2px solid white;
+            transition: all 0.3s ease !important;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .nav-call-btn:hover {
+            background-color: white !important;
+            color: #0073B1 !important;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- HAMBURGER --- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            width: 100%;
+            min-height: 100vh;
+            background: url('Productbg.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-top: 150px;
+            padding-left: 5%;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            margin-left: 20px;
+            margin-top: -35px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(1.8rem, 5vw, 3.8rem);
+            text-transform: uppercase;
+            font-weight: 800;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 0px;
+            letter-spacing: -1px;
+            color: white;
+            -webkit-text-stroke: 1.5px #3e99ee;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #FFD700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+            line-height: 1.4;
+        }
+
+        .hero-cta-container {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: -20px;
+        }
+
+        .hero-cta {
+            background: #ff0000;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            border: 2px solid transparent;
+            display: inline-block;
+        }
+
+        /* --- APEX INTRO SECTION --- */
+        .apex-intro {
+            max-width: 900px;
+            margin: 40px auto 80px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            position: relative;
+            z-index: 20;
+            animation: floatAndYellowGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes floatAndYellowGlow {
+            0% { transform: translateY(0px); box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
+            50% { transform: translateY(-12px); box-shadow: 0 0 40px rgba(255, 215, 0, 0.9); }
+            100% { transform: translateY(0px); box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
+        }
+
+        .apex-intro p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        @keyframes borderGlow {
+            0% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+            50% { border-color: #ff4d4d; box-shadow: 0 0 25px #ff0000; }
+            100% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+        }
+
+        .glow-effect {
+            animation: borderGlow 2s infinite !important;
+        }
+
+        /* --- PRODUCTS GRID & CARDS --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 520px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 30px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-front {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #004f95 0%, #0073B1 100%) !important;
+            transform: rotateY(180deg);
+            color: white;
+            text-align: left;
+            justify-content: center;
+            outline: 4px solid #FFD700;
+            outline-offset: -4px;
+        }
+
+        .card-back h4 {
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .card-back h4::before { content: "● "; color: #FFD700; margin-right: 8px; }
+        .card-back p::before { content: "✔ "; color: #FFD700; margin-right: 8px; }
+        .card-back li::before { content: "✔ "; color: #FFD700; margin-right: 8px; }
+        .card-back ul { list-style: none; padding-left: 0 !important; }
+
+        .product-img {
+            width: 100%;
+            height: 310px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 13px;
+        }
+
+        .enquire-btn {
+            background: #0073B1;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            border: 2px solid white;
+            transition: 0.3s ease;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .enquire-btn:hover { background: #FFD700; color: #000; border-color: #FFD700; }
+
+        /* --- FOOTER --- */
+         .vip-footer {  
+            backdrop-filter: blur(15px); 
+            border-top: 1px solid rgba(255, 255, 255, 0.3); 
+            margin-top: 60px; 
+            border-top-left-radius: 40px; 
+            border-top-right-radius: 40px; 
+            color: white; 
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.2); 
+            background: rgba(0, 0, 0, 0.3);
+            padding: 65px 25px 25px;
+        }
+
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); text-align: left; gap: 50px;}
+        
+        .footer-section h4 { font-size: 20px; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #3e99ee; padding-left: 12px; font-weight: 800; margin-bottom: 24px; line-height: 1.4;}
+        .footer-section h5 { font-size: 20px; margin-top: 30px; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #3e99ee; padding-left: 12px; font-weight: 800; text-decoration: none; margin-bottom: 24px; line-height: 1.4;}
+        
+        .footer-section p, .footer-section li { color: #ffffff; font-weight: 500; list-style: none; font-size: 15px; line-height: 1.9;}
+        .footer-section ul li { margin-bottom: 8px;}
+        
+        .footer-section a { color: #ffffff; text-decoration: none; transition: 0.3s ease; display: inline-block; font-weight: 600;}
+        .footer-section a:hover { color: #00D4FF; padding-left: 8px; }
+        
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); letter-spacing: 1px; color: #ffffff; opacity: 0.8; margin-top: 45px; padding-top: 25px; line-height: 1.6;}
+
+        .footer-section p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-section p:last-child { white-space: nowrap; }
+        .contractor-license {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 204, 0, 0.25);
+            text-align: center;
+        }
+
+        .contractor-license span {
+            color: #ffcc00;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .contact-info-fix p { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 1024px) {
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 850px) {
+            .hamburger { display: flex; }
+            .nav-menu {
+                position: absolute;
+                top: 90px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-20px);
+                width: 90%;
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                padding: 40px 20px;
+                border-radius: 25px;
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.4s ease;
+            }
+            .nav-menu.active { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+            .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section { padding-top: 115px; padding-left: 20px; align-items: flex-start; }
+            .hero-content { align-items: center; text-align: center; margin-left: 0; }
+            .products-grid { grid-template-columns: 1fr; max-width: 450px; }
+            .footer-container { text-align: center; display: flex; flex-direction: column; align-items: center; }
+            .footer-section h4, .footer-section h5 { border-left: none; border-bottom: 3px solid #3e99ee; display: inline-block; padding-bottom: 5px; }
+            
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0; left: 0;
+                width: 100vw; height: 100vh;
+                background: url('bg1.png') no-repeat center center;
+                background-size: cover;
+                z-index: -100;
+            }
+            body { background-image: none !important; }
+        }
+
+        @media (min-width: 769px) {
+            .footer-container {
+                display: grid !important;
+                grid-template-columns: 1.2fr 0.9fr 1.2fr 1fr !important;
+                gap: 40px !important;
+            }
+            .footer-section:nth-child(3) { margin-left: -80px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            <a href="index.html"><img src="logo.png" alt="Logo" class="nav-logo-img"></a>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="realstate.html">Real Estate</a></li>
+                <li><a href="Electrical.html">Electrical</a></li>
+                <li><a href="products.html" style="color: #3e99ee;">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="tel:0406872600" class="nav-call-btn">CALL NOW</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Perth’s Recovery Tools Delivered & Installed</h1>
+            <p>Saunas • Cold Plunges • Red Light • <br>Pure Water Solutions</p>
+            <div class="hero-cta-container">
+                <a href="#collection" class="hero-cta glow-effect">VIEW ALL PROJECT</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="apex-intro">
+        <p>“We own <strong>Apex Therapy Perth</strong>, so when you buy a sauna or cold plunge from us you get the full Professor treatment.”</p>
+        <a href="tel:0406872600" class="hero-cta" style="background:#0073B1">Call 0406 872 600</a>
+    </div>
+
+    <section class="products-grid" id="collection">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="card-front">
+                    <img src="hotsaunas.jpg" class="product-img" alt="Infrared Saunas">
+                    <h3>Infrared Saunas</h3>
+                    <p>Sweat, detox & recover at home – From $1,999 installed</p>
+                    <a href="contact.html?product=Sauna" class="enquire-btn">Enquire Now</a>
+                </div>
+                <div class="card-back">
+                    <h4>Product Details:</h4>
+                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Premium infrared/carbon saunas from Apex Therapy Perth professionally installed by the Professor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="card-front">
+                    <img src="coldsaunas.jpg" class="product-img" alt="Cold Plunge Ice Baths">
+                    <h3>Cold Plunge Ice Baths</h3>
+                    <p>Ice-cold recovery that works – From $999 installed</p>
+                    <a href="contact.html?product=ColdPlunge" class="enquire-btn">Enquire Now</a>
+                </div>
+                <div class="card-back">
+                    <h4>Product Details:</h4>
+                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Professional cold plunge systems from Apex Therapy Perth with full plumbing/electrical setup.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="card-front">
+                    <img src="apex.jpg" class="product-img" alt="Red Light Therapy">
+                    <h3>Red Light Therapy</h3>
+                    <p>Heal faster. Recover stronger. – From $19,999 installed</p>
+                    <a href="contact.html?product=RedLight" class="enquire-btn">Enquire Now</a>
+                </div>
+                <div class="card-back">
+                    <h4>Product Details:</h4>
+                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">High-quality red light panels for pain relief and skin health. Compliant installation included.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="card-front">
+                    <img src="homecoversubscription.jpg" class="product-img" alt="Home Cover Subscription">
+                    <h3>Home Cover Subscription</h3>
+                    <p>Year-round peace of mind – $499/year or $49/month</p>
+                    <a href="contact.html?product=Subscription" class="enquire-btn">Enquire Now</a>
+                </div>
+                <div class="card-back">
+                    <h4>Subscription Details:</h4>
+                    <ul style="font-size: 13px; padding-left: 15px; font-style: italic;">
+                        <li>1x annual safety inspection</li>
+                        <li>Priority 24/7 emergency service</li>
+                        <li>Fixed discounted hourly rate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="card-front">
+                    <img src="waterfilter.jpg" class="product-img" alt="Water Filtration Systems">
+                    <h3>Water Filtration Systems</h3>
+                    <p>Pure Perth water at every tap – From $1,299 installed</p>
+                    <a href="contact.html?product=WaterFilter" class="enquire-btn">Enquire Now</a>
+                </div>
+                <div class="card-back">
+                    <h4>Product Details:</h4>
+                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Whole-house reverse osmosis systems. Remove chlorine and heavy metals easily.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="card-front">
+                    <img src="panikanaal.jpg" class="product-img" alt="Instant Boiling & Chilled Taps">
+                    <h3>Instant Boiling & Chilled Taps</h3>
+                    <p>Boiling, chilled & sparkling water – From $1,899 installed</p>
+                    <a href="contact.html?product=InstantTaps" class="enquire-btn">Enquire Now</a>
+                </div>
+                <div class="card-back">
+                    <h4>Product Details:</h4>
+                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Premium instant boiling/chilled taps. Expert plumbing and electrical setup by the Professor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="vip-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Perth's premier plumbing experts. Delivering excellence across WA for over a decade.</p>
+                <h5>Trust badges:</h5>
+                <ul>
+                    <li>• Gas Licence GF20624 TL17198</li>
+                    <li>• 5-Star Google Reviews</li>
+                    <li>• ABN 96 693 410 9782</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="realstate.html">Real Estate</a></li>
+                    <li><a href="Electrical.html">Electrical</a></li>
+                    <li><a href="products.html">Products</a></li>
+                     <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-section contact-info-fix">
+                <h4>Contact Info</h4>
+                <p><span>📍</span> Office 5c Nangar Street, Yokine WA 6060</p>
+                <p><span>📞</span> 0406 872 600</p>
+                <p><span>✉️</span> perthsplumbingprofessor@gmail.com</p>
+            </div>
+            <div class="contractor-license">
+                <span>Fully Licensed & Certified | Licence No: PL11366</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Perth's Plumbing Professor | All Rights Reserved
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navbar = document.getElementById('mainNav');
+        let lastScrollY = window.scrollY;
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                navbar.classList.add('nav-hidden');
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScrollY = window.scrollY;
+        });
+    </script>
+</body>
+</html>
