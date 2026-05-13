@@ -491,6 +491,8 @@
             margin-right: 8px;
             display: inline-block;
             vertical-align: top;
+              font-family: Arial, sans-serif !important;
+    text-shadow: none !important;
         }
 
         @keyframes circlePulse {
@@ -662,9 +664,30 @@
             .footer-section a:hover { color: #00D4FF; padding-left: 8px; } .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 14px !important; line-height: 1.8 !important; letter-spacing: 1px; color: #ffffff; opacity: 0.8; }
              .footer-section p { margin-bottom: 6px !important; line-height: 1.3 !important; display: flex; align-items: center; gap: 10px; } 
              .footer-section p:last-child { white-space: nowrap; } 
+             .contact-info-fix p:last-child span {
+    flex-shrink: 0;
+}
+
+
+             .contact-info-fix p:last-child {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    font-size: 15px !important;
+}
+
              /* Contractor License */ .contractor-license { margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 204, 0, 0.25); text-align: center; margin-right: -15px; } 
              .contractor-license span { display: inline-block; color: #ffcc00; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; } 
-             /* Contact Info Fix */ .contact-info-fix p { display: flex; align-items: center; gap: 4px; margin-bottom: 10px; white-space: nowrap; } 
+             /* Contact Info Fix */.contact-info-fix p {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+    width: 100%;
+}
+         
              .contact-info-fix p span { flex-shrink: 0; font-size: 16px; } /* Desktop Footer Adjustment */ @media (min-width: 769px)
               { .footer-section:nth-child(3) { margin-left: -80px; } }
 
@@ -723,7 +746,50 @@
             .testimonial-container { padding: 30px 20px; margin: 40px 15px; }
             .testimonial-container h2 { font-size: 30px; line-height: 1.4; }
 
-          /* Mobile Footer Responsive */ @media (max-width: 768px) { .footer-container { text-align: center; gap: 25px !important; display: flex; flex-direction: column; } .footer-section p, .footer-section li { font-size: 15px !important; } .footer-section h4, .footer-section h5 { border-left: none; border-bottom: 3px solid #3e99ee; display: inline-block; padding: 0 10px; padding-bottom: 5px; } .footer-section.contact-info-fix { text-align: center !important; display: flex; flex-direction: column; align-items: center; } .footer-section.contact-info-fix h4 { margin-bottom: 20px; } .contact-info-fix p { display: flex !important; justify-content: center !important; align-items: center !important; gap: 8px !important; white-space: nowrap !important; text-align: center !important; margin-bottom: 8px !important; width: 100%; } .contact-info-fix p span { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; } .contractor-license { margin-top: 15px !important; padding-top: 12px !important; text-align: center !important; margin-right: 0 !important; width: 100%; } .contractor-license span { font-size: 12px !important; letter-spacing: 0.4px !important; line-height: 1.6 !important; display: block; text-align: center; } }
+          /* Mobile Footer Responsive */ @media (max-width: 768px) { 
+            .footer-container { text-align: center; gap: 25px !important; display: flex; flex-direction: column; }
+             .footer-section p, .footer-section li { font-size: 15px !important; }
+              .footer-section h4, .footer-section h5 { border-left: none; border-bottom: 3px solid #3e99ee; display: inline-block; padding: 0 10px; padding-bottom: 5px; }
+             .footer-section.contact-info-fix {
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+            .footer-section.contact-info-fix h4 {
+        margin-bottom: 20px !important;
+    }
+
+          .contact-info-fix p {
+        display: flex !important;
+        justify-content: center !important; /* center align mobile */
+        align-items: center !important;
+        gap: 8px !important;
+        white-space: nowrap !important;
+        flex-wrap: nowrap !important;
+        width: auto !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        margin-bottom: 10px !important;
+    }
+
+              .contact-info-fix p span {
+        display: inline-flex !important;
+        width: 18px !important;
+        min-width: 18px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+    }
+    .contact-info-fix p:last-child {
+        font-size: 13px !important;
+        white-space: nowrap !important;
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
+        letter-spacing: 0 !important;
+    }
+           .contractor-license { margin-top: 15px !important; padding-top: 12px !important; text-align: center !important; margin-right: 0 !important; width: 100%; } .contractor-license span { font-size: 12px !important; letter-spacing: 0.4px !important; line-height: 1.6 !important; display: block; text-align: center; } }
         }
 /* --- ALL MOBILE RESPONSIVENESS MERGED --- */
 @media (max-width: 768px) {
@@ -751,6 +817,43 @@
     .navbar { width: calc(100% - 20px); margin: 10px auto; border-radius: 20px; position: fixed; }
     .nav-container { padding: 10px 20px; }
     /* ... apka baki saara mobile CSS ... */}
+
+    /* Desktop footer contact info exact icon alignment fix */
+@media (min-width: 769px) {
+    .contact-info-fix {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    .contact-info-fix p {
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 10px !important;
+        white-space: nowrap !important;
+        margin-bottom: 8px !important;
+        width: auto !important;
+        text-align: left !important;
+    }
+
+    .contact-info-fix p span {
+        display: inline-flex !important;
+        width: 22px !important; /* sab icons equal position */
+        min-width: 22px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+    }
+}
+    /* MOBILE EXTRA FIX */
+@media (max-width: 768px) {
+    .contact-info-fix p:last-child {
+        font-size: 13px !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
+    }
+}
     </style>
 </head>
 
@@ -968,78 +1071,119 @@
         let contentShown = false;
         let hasPlayed = false;
 
-        const showWebsiteContent = () => {
-            if (contentShown) return;
-            navbar.style.display = 'block';
-            contentWrapper.style.display = 'block';
-            document.body.style.overflow = 'auto';
-            contentShown = true;
-        };
+       // Sirf ye JavaScript wala part update karo — baki kuch mat chhero
 
-        video.onended = function () {
-            showWebsiteContent();
-        };
+// BODY ko start mai lock kar do
+document.body.style.overflow = 'hidden';
 
-      const handleHeroInteraction = (e) => {
-            if (hasPlayed) return; 
-            hasPlayed = true; 
+// Sirf existing JS replace karo — baki kuch mat chhero
 
-            video.muted = false; 
-            
-            let playPromise = video.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    thumbnailOverlay.style.display = 'none'; 
-                    if (window.scrollY > 20) {
-                        showWebsiteContent();
-                    }
-                }).catch(error => {
-                    console.log("Browser error:", error);
-                    thumbnailOverlay.style.display = 'none'; 
-                    showWebsiteContent();
-                });
-            }
-        };
+document.body.style.overflow = 'hidden';
 
-        hero.addEventListener('click', handleHeroInteraction);
-        
-        if (playNowBtn) {
-            playNowBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); 
-                handleHeroInteraction();
-            });
+const showWebsiteContent = () => {
+    if (contentShown) return;
+
+    navbar.style.display = 'block';
+    contentWrapper.style.display = 'block';
+    document.body.style.overflow = 'auto';
+
+    contentShown = true;
+};
+
+video.onended = function () {
+    showWebsiteContent();
+};
+
+const handleHeroInteraction = (e) => {
+    if (hasPlayed) return;
+    hasPlayed = true;
+
+    video.muted = false;
+
+    let playPromise = video.play();
+
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            thumbnailOverlay.style.display = 'none';
+        }).catch(error => {
+            console.log("Browser error:", error);
+
+            // fallback
+            video.muted = true;
+            video.play();
+            thumbnailOverlay.style.display = 'none';
+        });
+    }
+};
+
+hero.addEventListener('click', handleHeroInteraction);
+
+if (playNowBtn) {
+    playNowBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        handleHeroInteraction();
+    });
+}
+
+// Scroll completely lock until video ends
+window.addEventListener('scroll', () => {
+    if (!contentShown) {
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant'
+        });
+        return;
+    }
+
+    if (window.scrollY > lastScrollY && window.scrollY > 150) {
+        navbar.classList.add('nav-hidden');
+    } else {
+        navbar.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = window.scrollY;
+
+    const triggerBottom = window.innerHeight / 5 * 4;
+    const testiHeadingElement = document.querySelector('.stagger-heading');
+
+    if (testiHeadingElement) {
+        const h2Top = testiHeadingElement.getBoundingClientRect().top;
+        if (h2Top < triggerBottom) {
+            testiHeadingElement.classList.add('lehrata-show');
         }
+    }
+});
 
-        menu.addEventListener('click', (e) => {
-            e.stopPropagation();
-            menu.classList.toggle('is-active');
-            navMenu.classList.toggle('active');
-        });
+// Mouse wheel block
+window.addEventListener('wheel', function(e) {
+    if (!contentShown) {
+        e.preventDefault();
+    }
+}, { passive: false });
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20 && !contentShown) {
-                showWebsiteContent();
-            }
+// Touch scroll block
+window.addEventListener('touchmove', function(e) {
+    if (!contentShown) {
+        e.preventDefault();
+    }
+}, { passive: false });
 
-            if (contentShown) {
-                if (window.scrollY > lastScrollY && window.scrollY > 150) {
-                    navbar.classList.add('nav-hidden');
-                } else {
-                    navbar.classList.remove('nav-hidden');
-                }
-                lastScrollY = window.scrollY;
+// Keyboard scroll block
+window.addEventListener('keydown', function(e) {
+    if (!contentShown) {
+        const keys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Space'];
+        if (keys.includes(e.code) || keys.includes(e.key)) {
+            e.preventDefault();
+        }
+    }
+});
 
-                const triggerBottom = window.innerHeight / 5 * 4;
-                const testiHeadingElement = document.querySelector('.stagger-heading');
-                if (testiHeadingElement) {
-                    const h2Top = testiHeadingElement.getBoundingClientRect().top;
-                    if (h2Top < triggerBottom) {
-                        testiHeadingElement.classList.add('lehrata-show');
-                    }
-                }
-            }
-        });
+// Touch devices ke liye bhi lock
+window.addEventListener('touchmove', function(e) {
+    if (!contentShown) {
+        e.preventDefault();
+    }
+}, { passive: false });
         
 const readMoreBtn = document.getElementById('readMoreBtn');
 const bioText = document.getElementById('bioText');
