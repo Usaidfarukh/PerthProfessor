@@ -538,15 +538,23 @@
             }
         }
      /* MOBILE BACKGROUND FIX — replace ONLY the last mobile body background block with this */
+/* MOBILE BACKGROUND FIX — sirf ye existing @media (max-width: 768px) ke andar replace kro */
 @media (max-width: 768px) {
-    body {
-        background:
-            linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
-            url('bg1.png') no-repeat top center !important;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        background-attachment: scroll !important;
-        background-color: #0a0f1a !important;
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: url('bg1.png') no-repeat center center;
+        background-size: cover;
+        z-index: -100;
+    }
+
+    .content-wrapper {
+        /* Ye line add ki hai taake purana zoomed background hide ho jaye aur naya sahi wala dikhe */
+        background: transparent !important; 
     }
 }
     </style>
