@@ -280,12 +280,15 @@
             outline-offset: -4px;
         }
 
-        .card-back h4 {
-            border-bottom: 2px solid #FFD700;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
+      /* Sirf ye existing CSS block update karo */
+
+.card-back h4 {
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    display: inline-block;
+    text-transform: uppercase; /* Heading capital */
+}
 
         .card-back h4::before { content: "● "; color: #FFD700; margin-right: 8px; }
         .card-back p::before { content: "✔ "; color: #FFD700; margin-right: 8px; }
@@ -393,7 +396,7 @@
         }
 
         @media (max-width: 768px) {
-            .hero-section { padding-top: 115px; padding-left: 20px; align-items: flex-start; }
+            .hero-section { padding-top: 160px; padding-left: 20px; align-items: flex-start; }
             .hero-content { align-items: center; text-align: center; margin-left: 0; }
             .products-grid { grid-template-columns: 1fr; max-width: 450px; }
             .footer-container { text-align: center; display: flex; flex-direction: column; align-items: center; }
@@ -419,6 +422,11 @@
             }
             .footer-section:nth-child(3) { margin-left: -80px; }
         }
+        @media (max-width: 768px) {
+    .hero-cta {
+        margin-top: 12px !important; /* call/view button neechy */
+    }
+}
     </style>
 </head>
 
@@ -467,7 +475,7 @@
                 </div>
                 <div class="card-back">
                     <h4>Product Details:</h4>
-                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Premium infrared/carbon saunas from Apex Therapy Perth professionally installed by the Professor.</p>
+                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Premium infrared/carbon saunas from Apex Therapy Perth — professionally installed by the Professor. Deep relaxation, better sleep, and improved circulation. Full installation & compliance included. Expert setup. Prices quoted directly from Apex Therapy Perth website.</p>
                 </div>
             </div>
         </div>
@@ -482,7 +490,7 @@
                 </div>
                 <div class="card-back">
                     <h4>Product Details:</h4>
-                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Professional cold plunge systems from Apex Therapy Perth with full plumbing/electrical setup.</p>
+                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Professional cold plunge systems from Apex Therapy Perth with full plumbing/electrical, temperature control and filtration. Expert install, crystal-clear water, maintenance plans available. Prices quoted directly from Apex Therapy Perth website.</p>
                 </div>
             </div>
         </div>
@@ -497,7 +505,7 @@
                 </div>
                 <div class="card-back">
                     <h4>Product Details:</h4>
-                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">High-quality red light panels for pain relief and skin health. Compliant installation included.</p>
+                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">High-quality red light therapy panels and beds from Apex Therapy Perth for pain relief, skin health and faster recovery. Clean, compliant installation by the Professor. Full electrical & mounting included. 2-year warranty on selected models. Prices quoted directly from Apex Therapy Perth website.</p>
                 </div>
             </div>
         </div>
@@ -515,7 +523,8 @@
                     <ul style="font-size: 13px; padding-left: 15px; font-style: italic;">
                         <li>1x annual safety inspection</li>
                         <li>Priority 24/7 emergency service</li>
-                        <li>Fixed discounted hourly rate</li>
+                        <li>Fixed discounted hourly rate on repairs</li>
+                         <li>Full report after every visit</li>
                     </ul>
                 </div>
             </div>
@@ -531,7 +540,7 @@
                 </div>
                 <div class="card-back">
                     <h4>Product Details:</h4>
-                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Whole-house reverse osmosis systems. Remove chlorine and heavy metals easily.</p>
+                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Whole-house or under-sink reverse osmosis and advanced filtration systems. Remove chlorine, heavy metals and bad taste for clean, great-tasting water throughout your home. Full plumbing installation & testing by the Professor.</p>
                 </div>
             </div>
         </div>
@@ -546,7 +555,7 @@
                 </div>
                 <div class="card-back">
                     <h4>Product Details:</h4>
-                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Premium instant boiling/chilled taps. Expert plumbing and electrical setup by the Professor.</p>
+                    <p style="font-size: 14px; line-height: 1.4; font-style: italic;">Premium Zip G4-style instant boiling and chilled water taps. Get filtered boiling water for tea & coffee, chilled filtered water, and sparkling water on demand. Expert plumbing and electrical installation by the Professor.</p>
                 </div>
             </div>
         </div>
