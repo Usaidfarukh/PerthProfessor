@@ -597,22 +597,32 @@
 /* --- ALL MOBILE RESPONSIVENESS MERGED --- */
 @media (max-width: 768px) {
 
-    /* --- MOBILE BACKGROUND FIX (Sirf ye snippet add karein) --- */
+    @media (max-width: 768px) {
+
     body {
-        background-image: none !important; 
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.18)),
+            url('bg1.png') no-repeat center center !important;
+        background-size: cover !important;
+        background-attachment: scroll !important;
     }
 
     body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: url('bg1.png') no-repeat center center;
-        background-size: cover;
-        z-index: -100;
+        display: none !important;
     }
+
+    .hero-title {
+        padding-top: 150px;
+        padding-bottom: 30px;
+    }
+
+    .glass-card,
+    .form-container,
+    .vip-footer {
+        background: rgba(255, 255, 255, 0.14) !important;
+        backdrop-filter: blur(14px) !important;
+    }
+}
     /* --------------------------------------------------------- */
 
     /* Baki apka code exactly waisa hi rahega neechay, KUCH NAHI CHERNA */
