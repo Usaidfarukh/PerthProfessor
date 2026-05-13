@@ -537,15 +537,16 @@
                 text-align: center;
             }
         }
-        @media (max-width: 768px) {
-    /* --- DARK BACKGROUND FIX FOR MOBILE --- */
+     /* MOBILE BACKGROUND FIX — replace ONLY the last mobile body background block with this */
+@media (max-width: 768px) {
     body {
         background:
-            linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6)),
-            url('bg1.png') no-repeat center center !important;
-        background-size: contain !important; /* Changed from cover to contain */
-        background-repeat: repeat-y !important; /* Ensures full screen height */
+            linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)),
+            url('bg1.png') no-repeat top center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
         background-attachment: scroll !important;
+        background-color: #0a0f1a !important;
     }
 }
     </style>
