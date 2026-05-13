@@ -280,15 +280,13 @@
             outline-offset: -4px;
         }
 
-      /* Sirf ye existing CSS block update karo */
-
-.card-back h4 {
-    border-bottom: 2px solid #FFD700;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    display: inline-block;
-    text-transform: uppercase; /* Heading capital */
-}
+        .card-back h4 {
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
 
         .card-back h4::before { content: "● "; color: #FFD700; margin-right: 8px; }
         .card-back p::before { content: "✔ "; color: #FFD700; margin-right: 8px; }
@@ -319,54 +317,69 @@
 
         .enquire-btn:hover { background: #FFD700; color: #000; border-color: #FFD700; }
 
-        /* --- FOOTER --- */
-         .vip-footer {  
+        /* --- FOOTER (Replaced from Real Estate Page) --- */
+        .vip-footer {  
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(15px); 
-            border-top: 1px solid rgba(255, 255, 255, 0.3); 
+            border-top: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 50px 20px 20px 20px; 
             margin-top: 60px; 
             border-top-left-radius: 40px; 
             border-top-right-radius: 40px; 
             color: white; 
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.2); 
-            background: rgba(0, 0, 0, 0.3);
-            padding: 65px 25px 25px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5); 
         }
 
-        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); text-align: left; gap: 50px;}
-        
-        .footer-section h4 { font-size: 20px; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #3e99ee; padding-left: 12px; font-weight: 800; margin-bottom: 24px; line-height: 1.4;}
-        .footer-section h5 { font-size: 20px; margin-top: 30px; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #3e99ee; padding-left: 12px; font-weight: 800; text-decoration: none; margin-bottom: 24px; line-height: 1.4;}
-        
-        .footer-section p, .footer-section li { color: #ffffff; font-weight: 500; list-style: none; font-size: 15px; line-height: 1.9;}
-        .footer-section ul li { margin-bottom: 8px;}
-        
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: left; }
+        .footer-section h4 { font-size: 22px !important; margin-bottom: 22px !important; line-height: 1.4 !important; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #3e99ee; padding-left: 12px; font-weight: 800; }
+        .footer-section h5 { font-size: 22px !important; margin-bottom: 22px !important; line-height: 1.4 !important; margin-top: 30px; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; border-left: 4px solid #3e99ee; padding-left: 12px; font-weight: 800; text-decoration: none; }
+        .footer-section p, .footer-section li { font-size: 16px !important; line-height: 2 !important; color: #ffffff; font-weight: 500; list-style: none;}
         .footer-section a { color: #ffffff; text-decoration: none; transition: 0.3s ease; display: inline-block; font-weight: 600;}
         .footer-section a:hover { color: #00D4FF; padding-left: 8px; }
-        
-        .footer-bottom { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); letter-spacing: 1px; color: #ffffff; opacity: 0.8; margin-top: 45px; padding-top: 25px; line-height: 1.6;}
+        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 14px !important; line-height: 1.8 !important; letter-spacing: 1px; color: #ffffff; opacity: 0.8; }
 
         .footer-section p {
+            margin-bottom: 6px !important;
+            line-height: 1.3 !important;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .footer-section p:last-child { white-space: nowrap; }
+        .footer-section p:last-child {
+            white-space: nowrap;
+        }
+
         .contractor-license {
             margin-top: 20px;
             padding-top: 15px;
             border-top: 1px solid rgba(255, 204, 0, 0.25);
             text-align: center;
+            margin-right: -15px;
         }
 
         .contractor-license span {
+            display: inline-block;
             color: #ffcc00;
             font-size: 14px;
             font-weight: 700;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .contact-info-fix p { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .contact-info-fix p {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 10px;
+            white-space: nowrap;
+        }
+
+        .contact-info-fix p span {
+            flex-shrink: 0;
+            font-size: 16px;
+        }
 
         /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 1024px) {
@@ -399,8 +412,6 @@
             .hero-section { padding-top: 160px; padding-left: 20px; align-items: flex-start; }
             .hero-content { align-items: center; text-align: center; margin-left: 0; }
             .products-grid { grid-template-columns: 1fr; max-width: 450px; }
-            .footer-container { text-align: center; display: flex; flex-direction: column; align-items: center; }
-            .footer-section h4, .footer-section h5 { border-left: none; border-bottom: 3px solid #3e99ee; display: inline-block; padding-bottom: 5px; }
             
             body::before {
                 content: "";
@@ -412,21 +423,54 @@
                 z-index: -100;
             }
             body { background-image: none !important; }
+
+            /* Mobile Footer Adjustments from Real Estate */
+            .footer-container { text-align: center; gap: 25px !important; display: flex; flex-direction: column;}
+            .footer-section p, .footer-section li { font-size: 15px !important; }
+            
+            .footer-section h4, .footer-section h5 { 
+                border-left: none; 
+                border-bottom: 3px solid #3e99ee; 
+                display: inline-block; 
+                padding: 0 10px; 
+                padding-bottom: 5px;
+            }
+            
+            .footer-section.contact-info-fix {
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-info-fix p {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 8px !important;
+                white-space: nowrap !important;
+                text-align: center !important;
+                margin-bottom: 8px !important;
+                width: 100%;
+            }
+            .contractor-license {
+                margin-top: 15px !important;
+                padding-top: 12px !important;
+                text-align: center !important;
+                margin-right: 0 !important;
+                width: 100%;
+            }
+            .contractor-license span {
+                font-size: 12px !important;
+                letter-spacing: 0.4px !important;
+                line-height: 1.6 !important;
+                display: block;
+                text-align: center;
+            }
         }
 
         @media (min-width: 769px) {
-            .footer-container {
-                display: grid !important;
-                grid-template-columns: 1.2fr 0.9fr 1.2fr 1fr !important;
-                gap: 40px !important;
-            }
             .footer-section:nth-child(3) { margin-left: -80px; }
         }
-        @media (max-width: 768px) {
-    .hero-cta {
-        margin-top: 12px !important; /* call/view button neechy */
-    }
-}
     </style>
 </head>
 
@@ -565,12 +609,13 @@
         <div class="footer-container">
             <div class="footer-section">
                 <h4>About Us</h4>
-                <p>Perth's premier plumbing experts. Delivering excellence across WA for over a decade.</p>
+                <p>Perth's premier plumbing experts. Delivering excellence across Western Australia for over a decade with trust and precision.</p>
                 <h5>Trust badges:</h5>
                 <ul>
-                    <li>• Gas Licence GF20624 TL17198</li>
-                    <li>• 5-Star Google Reviews</li>
-                    <li>• ABN 96 693 410 9782</li>
+                    <li><a href="#">• Gas Licence GF20624 TL17198</a></li>
+                    <li><a href="#">• 5-Star Google Reviews</a></li>
+                    <li><a href="#">• Owner-Operated by Andre Stokes</a></li>
+                    <li><a href="#">• ABN 96 693 410 9782</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -580,8 +625,7 @@
                     <li><a href="realstate.html">Real Estate</a></li>
                     <li><a href="Electrical.html">Electrical</a></li>
                     <li><a href="products.html">Products</a></li>
-                     <li><a href="contact.html">Contact</a></li>
-
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section contact-info-fix">
