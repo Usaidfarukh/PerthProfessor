@@ -288,9 +288,11 @@
             text-transform: uppercase;
         }
 
-        .card-back h4::before { content: "● "; color: #FFD700; margin-right: 8px; }
-        .card-back p::before { content: "\2605"; color: #FFD700; margin-right: 8px; }
-        .card-back li::before { content: "✔ "; color: #FFD700; margin-right: 8px; }
+        /* FIXED: Added !important to force gold color for symbols on mobile */
+        .card-back h4::before { content: "● "; color: #FFD700 !important; margin-right: 8px; }
+        .card-back p::before { content: "✔"; color: #FFD700 !important; margin-right: 8px; }
+        .card-back li::before { content: "✔ "; color: #FFD700 !important; margin-right: 8px; }
+        
         .card-back ul { list-style: none; padding-left: 0 !important; }
 
         .product-img {
@@ -317,7 +319,7 @@
 
         .enquire-btn:hover { background: #FFD700; color: #000; border-color: #FFD700; }
 
-        /* --- FOOTER (Replaced from Real Estate Page) --- */
+        /* --- FOOTER --- */
         .vip-footer {  
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(15px); 
@@ -424,7 +426,6 @@
             }
             body { background-image: none !important; }
 
-            /* Mobile Footer Adjustments from Real Estate */
             .footer-container { text-align: center; gap: 25px !important; display: flex; flex-direction: column;}
             .footer-section p, .footer-section li { font-size: 15px !important; }
             
