@@ -538,8 +538,13 @@
             }
         }
      /* MOBILE BACKGROUND FIX — replace ONLY the last mobile body background block with this */
-/* MOBILE BACKGROUND FIX — sirf ye existing @media (max-width: 768px) ke andar replace kro */
+/* MOBILE BACKGROUND FIX — replace ONLY the last mobile body background block with this */
 @media (max-width: 768px) {
+    body {
+        /* Purana stretched background hata diya */
+        background: transparent !important; 
+    }
+    
     body::before {
         content: "";
         position: fixed;
@@ -547,14 +552,9 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: url('bg1.png') no-repeat center center;
-        background-size: cover;
+        background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)), url('bg1.png') no-repeat center center !important;
+        background-size: cover !important;
         z-index: -100;
-    }
-
-    .content-wrapper {
-        /* Ye line add ki hai taake purana zoomed background hide ho jaye aur naya sahi wala dikhe */
-        background: transparent !important; 
     }
 }
     </style>
